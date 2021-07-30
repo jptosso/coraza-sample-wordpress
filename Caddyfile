@@ -1,0 +1,12 @@
+{
+    debug
+    auto_https off
+    order coraza_waf first
+}
+
+:80 {
+	coraza_waf {
+		include '/coraza/crs/rules.conf'
+	}
+	reverse_proxy wordpress:80
+}
